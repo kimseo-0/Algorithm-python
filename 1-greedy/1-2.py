@@ -37,7 +37,7 @@ print(max_sum)
 
 # 문제를 이해하는 시간을 더 가진다.
 
-# 2차 풀이
+# 2차 풀이 - 정답
 N, M, K = map(int, input().split())
 Num = list(map(int, input().split()))
 
