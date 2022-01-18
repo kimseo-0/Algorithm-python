@@ -1,3 +1,5 @@
+# https://www.acmicpc.net/problem/1541
+
 import sys
 input = sys.stdin.readline
 argument = input().split("-")

@@ -1,3 +1,5 @@
+# https://www.acmicpc.net/problem/11047
+
 N, K = map(int, input().split())
 value_list = []
 for i in range(N):
