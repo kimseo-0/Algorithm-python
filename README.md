@@ -14,3 +14,5 @@
   - bruteforce : 완전 탐색 알고리즘
   - simulation : 시뮬레이션
 - extra : 구분 없음
+
+link : [tistory](hayleykimlog.tistory.com)
