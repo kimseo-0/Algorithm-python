@@ -10,5 +10,7 @@
 
 # 목록
 - greedy : greedy 알고리즘
-- 구현 : 완전탐색 알고리즘, 시뮬레이션
+- 구현 :
+  - brute : 완전 탐색 알고리즘
+  - simulation : 시뮬레이션
 - extra : 구분 없음
