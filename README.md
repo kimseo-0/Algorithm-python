@@ -15,4 +15,6 @@
   - simulation : 시뮬레이션
 - extra : 구분 없음
 
-link : [tistory](hayleykimlog.tistory.com)
+
+# 추가 정보
+blog : [tistory](hayleykimlog.tistory.com)
