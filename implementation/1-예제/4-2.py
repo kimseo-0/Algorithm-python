@@ -14,7 +14,7 @@ input = sys.stdin.readline
 #             count += 1
 #             break
 #
-#     # 시계 동작 구현
+#     # 시계 동작 implementation
 #     start_time[2] += 1
 #     if start_time[2] == 60:
 #         start_time[2] = 0
