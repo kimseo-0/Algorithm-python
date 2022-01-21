@@ -16,31 +16,49 @@ def DFS(graph, v):
 
         return True
 
-def BFS(graph, v):
+
+def BFS(graph, v, visited):
     queue = deque([v])
 
-    graph[v[0]][v[1]] = 1
+    if graph[v[0]][v[1]] == 1 or visited[v[0]][v[1]] == 1:
+        visited[v[0]][v[1]] = 1
+        return False
 
+    visited[v[0]][v[1]] = 1
+
+    dx = [0, 0, -1, 1]
+    dy = [-1, 1, 0, 0]
     while queue:
         v = queue.popleft()
-        for i in graph[v]:
-            if graph[v[0]][v[1]] == 0:
-                queue.append(i)
-                graph[v[0]][v[1]] = 1
+        for i in range(4):
+            nx = v[0] + dx[i]
+            ny = v[1] + dy[i]
+            if nx <= -1 or nx >= N or ny <= -1 or ny >= M:
+                continue
+            if graph[nx][ny] == 0 and visited[nx][ny] == 0:
+                visited[nx][ny] = 1
+                queue.append((nx, ny))
+    return True
 
 
 N, M = map(int, input().split())
 ice_list = []
 for i in range(N):
-    ice_list.append(list(map(int, input())))
+    ice_list.append(list(map(int, list(input()))))
 
-visited_list = [[False] * M] * N
+visited_list = [[0] * M for _ in range(N)]
 
 count = 0
 for i in range(N):
     for j in range(M):
-        result = DFS(ice_list, (i, j))
+        result = BFS(ice_list, (i, j), visited_list)
         if result:
             count += 1
 
 print(count)
+
+# 4 5
+# 00110
+# 00011
+# 11111
+# 00000
