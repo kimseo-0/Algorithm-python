@@ -17,4 +17,4 @@
 
 
 # 추가 정보
-blog : [tistory](hayleykimlog.tistory.com)
+blog : hayleykimlog.tistory.com
