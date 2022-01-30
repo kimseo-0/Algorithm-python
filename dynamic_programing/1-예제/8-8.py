@@ -3,8 +3,6 @@ money_list = []
 for i in range(N):
     money_list.append(int(input()))
 
-# money_list.sort()
-
 DP = [0] * (M + 1)
 
 for i in range(1, M + 1):
@@ -20,3 +18,16 @@ for i in range(1, M + 1):
 
 print(DP)
 print(DP[M])
+
+DP = [10001] * (M + 1)
+DP[0] = 0
+
+for money in money_list:
+    for i in range(money, M + 1):
+        DP[i] = min(DP[i], DP[i - money] + 1)
+
+print(DP)
+if DP[M] == 10001:
+    print(-1)
+else:
+    print(DP[M])
