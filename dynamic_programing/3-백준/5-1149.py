@@ -20,3 +20,5 @@ for i in range(1, N):
     DP_B[i] = min(value_list[i][2] + DP_R[i - 1], value_list[i][2] + DP_G[i - 1])
 
 print(min(DP_R[N - 1], DP_G[N - 1], DP_B[N - 1]))
+
+# https://www.acmicpc.net/problem/1149
