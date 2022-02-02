@@ -52,4 +52,4 @@ print(min(distance_R[1][N - 1], distance_R[2][N - 1],
           distance_B[0][N - 1], distance_B[1][N - 1]))
 
 # https://www.acmicpc.net/problem/1149 와 연결되는 문제
-# https://www.acmicpc.net/problem/17404
+# 동적계획법 3 https://www.acmicpc.net/problem/17404
