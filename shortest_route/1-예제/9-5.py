@@ -6,7 +6,7 @@ INF = int(1e9)
 def dijkstra(start):
     q = []
     heapq.heappush(q, (0, start))
-
+    distance[start] = 0
     while q:
         dist, now = heapq.heappop(q)
 
@@ -32,11 +32,11 @@ dijkstra(C)
 
 count = 0
 max_distance = 0
-for i in range(2, N + 1):
+for i in range(1, N + 1):
     if distance[i] != INF:
         count += 1
         max_distance = max(max_distance, distance[i])
 
-print(count, end=' ')
+print(count - 1, end=' ')
 print(max_distance)
 print(distance)
