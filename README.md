@@ -9,12 +9,28 @@
 
 
 # 목록
-- greedy : greedy 알고리즘
-- 구현 :
-  - bruteforce : 완전 탐색 알고리즘
-  - simulation : 시뮬레이션
+- DFS&BFS
+  - depth_first_search
+  - breadth_first_search
+- binary_search
+- dynamic_programing
 - extra : 구분 없음
-
+- graph
+  - dishoint_sets
+  - kruskal
+  - topology_sort
+- greedy : greedy 알고리즘
+- implementation
+  - bruteforce : 완전 탐색 알고리즘
+  - simulation : 시뮬레
+- shortest_route
+  - dijkstra
+  - floyd_warshall
+- sort
+  - selection_sort
+  - insertion_sort
+  - quick_sort
+  - count_sort
 
 # 추가 정보
 blog : hayleykimlog.tistory.com
