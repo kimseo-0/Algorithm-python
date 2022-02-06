@@ -32,5 +32,4 @@ for i in range(N):
 
 house_list.sort()
 
-for i in range(2, M):
-    bi
+# for i in range(2, M):
