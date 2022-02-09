@@ -1,35 +1,28 @@
 import sys
 input = sys.stdin.readline
 
-def binary_search(array, start, end):
-    result = 0
-    result_mid = (start + end) // 2
-    while start < end:
-        mid = (start + end) // 2
-        left = array[mid] - array[start]
-        right = array[end] - array[mid]
-        if left == right:
-            result = left
-            break
-        elif left < right:
-            if result < left:
-                result = left
-                result_mid = mid
-            start += 1
-        else:
-            if result < right:
-                result = right
-                result_mid = mid
-            end -= 1
-        print(left, right, result)
-    return result, result_mid
+def binary_search(array, start, end, result):
+    if start > end:
+        return result
+    mid = (start + end) // 2
+    sum_of_result = 0
+    for i in array:
+        sum_of_result += i // mid
+    if sum_of_result < M:
+        return binary_search(array, start, mid - 1, result)
+    else:
+        result = mid
+        return binary_search(array, mid + 1, end, result)
 
 
 N, M = map(int, input().split())
-house_list = []
+line_list = []
 for i in range(N):
-    house_list.append(int(input()))
+    line_list.append(int(input()))
 
-house_list.sort()
+length = 0
+line_list.sort()
+length = binary_search(line_list, 1, line_list[-1], length)
 
-# for i in range(2, M):
+print(length)
+
