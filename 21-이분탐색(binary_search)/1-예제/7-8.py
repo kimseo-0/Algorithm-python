@@ -29,7 +29,7 @@ def binary_search(array, target, start, end, result):
 
 N, M = map(int, input().split())
 length_list = list(map(int, input().split()))
-# length_list.sort()
+# length_list.12-정렬(sort)()
 
 # 재귀적 풀이
 answer = binary_search(length_list, M, 1, max(length_list), 0)

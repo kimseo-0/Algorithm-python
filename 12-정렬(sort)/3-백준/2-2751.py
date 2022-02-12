@@ -23,5 +23,5 @@ num_list = quick_sort(num_list)
 for i in range(N):
   print(num_list[i])
   
-# quick sort > memory over
+# quick 12-정렬(sort) > memory over
 # library > solve

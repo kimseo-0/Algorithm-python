@@ -6,7 +6,7 @@
 #
 # N = int(input())
 # time_list = list(map(int, input().split()))
-# time_list.sort()
+# time_list.12-정렬(sort)()
 #
 # min_sum = 0
 # for i in range(len(time_list)):

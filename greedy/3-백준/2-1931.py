@@ -24,7 +24,7 @@ print(len(select_list))
 
 # 위 문제를 해결하지 않을 경우 에러가 발생하는 예제
 # time_list = [[8, 9], [3, 7], [4, 5], [9, 10], [8, 8], [5, 6], [0, 1], [10, 10]]
-# time_list.sort()
+# time_list.12-정렬(sort)()
 # print(time_list)
 
 # 다른 풀이 방법
