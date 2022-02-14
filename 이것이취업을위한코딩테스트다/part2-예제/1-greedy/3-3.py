@@ -8,7 +8,7 @@ for i in range(N):
 
 print(max(min_card_list))   # 가장 작은 숫자의 카드들 중 가장 큰 카드 찾기
 
-# 2차 풀이 - 정답(책 참고)
+# 2차 풀이 - 정답(운영체제(개정3판)_구현회 참고)
 N, M = map(int, input().split())
 
 result = 0
