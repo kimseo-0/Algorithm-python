@@ -1,7 +1,3 @@
-<style type='text/css'>
-  [class*="inner-details"] { margin-left: 20px }
-</style>
-
 # Algorithm with python
 
 알고리즘 유형에 따라 폴더를 분류 했습니다
@@ -9,59 +5,63 @@
 각 폴더별
 1. 책 '이것이 취업을 위한 코딩 테스트다' 수록 예제 및 기출 문제
 3. 백준 문제
+<br>
 
 # 목차
 <details>
-<summary>백준(BOG)</summary>
+  <summary>백준(BOG)</summary>
+  <div markdown="1">
+
+  - 11-완전탐색(brute_force)
+  - 12-정렬(sort)
+  - 15-동적계획법1(dynamic_programing)
+  - 16-그리디알고리즘(greedy)
+  - 17-정수론&조합론
+  - 21-이분탐색(binary_search)
+  - 24-DFS&BFS
+  - 33-동적계획법3
+  - extra
+
+  </div>
+</details>
+
+<details>
+<summary>이것이취업을위한코딩테스트다</summary> <br>
+<div>
+  
+<details>
+<summary>part2-예제</summary>
 <div markdown="1">
 
-- 11-완전탐색(brute_force)
-- 12-정렬(sort)
-- 15-동적계획법1(dynamic_programing)
-- 16-그리디알고리즘(greedy)
-- 17-정수론&조합론
-- 21-이분탐색(binary_search)
-- 24-DFS&BFS
-- 33-동적계획법3
-- extra
+- 1-greedy
+- 2-implementation
+- 3-DFS&BFS
+- 4-sort
+- 5-binary_search
+- 6-dynamic_programing
+- 7-shortest_route
+- 8-graph
 
 </div>
 </details>
 
 <details>
-<summary>이것이취업을위한코딩테스트다</summary>
+<summary>part3-기출</summary>
+<div markdown="1">
 
-  <details class='inner-details'>
-  <summary>part2-예제</summary>
-  <div markdown="1">
+- 1-greedy
+- 2-implementation
+- 3-DFS&BFS
+- 4-sort
+- 5-binary_search
+- 6-dynamic_programing
+- 7-shortest_route
+- 8-graph
+- 9-2020_상반기_삼성전자
 
-  - 1-greedy
-  - 2-implementation
-  - 3-DFS&BFS
-  - 4-sort
-  - 5-binary_search
-  - 6-dynamic_programing
-  - 7-shortest_route
-  - 8-graph
-
-  </div>
-  </details>
-
-  <details>
-  <summary>part3-기출</summary>
-  <div markdown="1">
-
-  - 1-greedy
-  - 2-implementation
-  - 3-DFS&BFS
-  - 4-sort
-  - 5-binary_search
-  - 6-dynamic_programing
-  - 7-shortest_route
-  - 8-graph
-
-  </div>
-  </details>
+</div>
+</details>
+    
 </div>
 </details>
 
@@ -71,8 +71,12 @@
 
 </div>
 </details>
+<br>
 
-# 알고리즘
+# 알고리즘 
+<details>
+<div markdown="1">
+  
 - greedy : greedy 알고리즘
 - implementation
   - bruteforce(완전 탐색)
@@ -94,6 +98,10 @@
   - dishoint_sets(서로소 집합)
   - kruskal(크루스칼)
   - topology_sort(위상 정렬)
+  
+  </div>
+</details>
+<br>
 
 # 추가 정보
 백준 단계별 :  https://www.acmicpc.net/step
