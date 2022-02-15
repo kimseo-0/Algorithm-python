@@ -20,8 +20,9 @@ house_list.sort()
 # min_result = house_list[(N - 1) // 2]
 # print(min_result)
 
-# 중간값에 대한 풀이가 애매하다고 생각해서
-# 조금 더 이해가 잘 될만한 풀이를 만들어봤다.
+# 중간값이 정답이라고 하기 전 생각한 풀이다.
+# 중간값에 대한 풀이를 떠올린 과정에 대한 설명
+# 및 위 풀이에 대한 이해를 돕기 위해 작성해보았다
 def binary_search(array, start, end):
     if start > end:
         return -1
