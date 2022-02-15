@@ -23,27 +23,27 @@ house_list.sort()
 # 중간값이 정답이라고 하기 전 생각한 풀이다.
 # 중간값에 대한 풀이를 떠올린 과정에 대한 설명
 # 및 위 풀이에 대한 이해를 돕기 위해 작성해보았다
-def binary_search(array, start, end):
-    if start > end:
-        return -1
-
-    mid = (start + end) // 2
-    mid_result = sum(map(lambda x: abs(x - house_list[mid]), house_list))
-    left_result = sum(map(lambda x: abs(x - house_list[(mid - 1) % N]), house_list))
-    right_result = sum(map(lambda x: abs(x - house_list[(mid + 1) % N]), house_list))
-
-    if mid_result <= left_result and mid_result <= right_result:
-        return mid
-    elif left_result < mid_result:
-        return binary_search(array, start, mid - 1)
-    elif right_result < mid_result:
-        return binary_search(array, mid + 1, end)
-
-
-result = binary_search(house_list, 0, N - 1)
-
-print(result)
-print(house_list[result])
+# def binary_search(array, start, end):
+#     if start > end:
+#         return -1
+#
+#     mid = (start + end) // 2
+#     mid_result = sum(map(lambda x: abs(x - house_list[mid]), house_list))
+#     left_result = sum(map(lambda x: abs(x - house_list[(mid - 1) % N]), house_list))
+#     right_result = sum(map(lambda x: abs(x - house_list[(mid + 1) % N]), house_list))
+#
+#     if mid_result <= left_result and mid_result <= right_result:
+#         return mid
+#     elif left_result < mid_result:
+#         return binary_search(array, start, mid - 1)
+#     elif right_result < mid_result:
+#         return binary_search(array, mid + 1, end)
+#
+#
+# result = binary_search(house_list, 0, N - 1)
+#
+# print(result)
+# print(house_list[result])
 
 # 4
 # 5 1 7 9
