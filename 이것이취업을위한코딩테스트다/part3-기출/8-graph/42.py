@@ -1,21 +1,14 @@
 # 순서대로
 G = int(input())
 P = int(input())
-plains = [[]]
-gate = [[] for _ in range(G + 1)]
-for i in range(P):
-    plain = [i for i in range(1, int(input()) + 1)]
-    plains.append(plain)
-    for j in plain:
-        gate[j].append(i)
+gate = [0] * (G + 1)
+count = 0
+for p in range(1, P + 1):
+    max_gate = int(input())     # 도킹할 수 있는 가장 큰 탑승구 번호
+    for g in range(max_gate, 0, -1):
+        if gate[g] == 0:
+            gate[g] = 1
+            count += 1
+            break
 
-plains.sort(key=lambda x: len(x))
-
-print(plains)
-
-# for i in range(1, P + 1):
-
-# graph = [[0] * (G + 1) for _ in range(P + 1)]
-# for i in range(1, P + 1):
-#     for j in range(1, int(input()) + 1):
-#         graph[i][j] = 1
+print(count)
