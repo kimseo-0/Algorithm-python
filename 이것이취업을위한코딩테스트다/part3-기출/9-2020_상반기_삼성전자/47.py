@@ -1,114 +1,105 @@
-# DFS 활용
+# 청소년 상어
+import sys
+from copy import deepcopy
 
-import copy
+input = sys.stdin.readline
 
 dx = [-1, -1, 0, 1, 1, 1, 0, -1]   # 위 부터 시계 반대 방향
 dy = [0, -1, -1, -1, 0, 1, 1, 1]
 
-def fish_move(shark_current, map_list, fish):
-    # 물고기 이동
-    for i in range(1, len(fish)):
-        num, direction, x, y = fish[i]
-        if num == 0:
+N = 4
+
+def move_fishes(map_list, fishes):
+    for fish in fishes:
+        if fish == -1:
             continue
-        for n in range(0, 8):
-            new_direction = (direction - 1 + n) % 8
-            nx = x + dx[new_direction]  # 현재 방향부터 8번 회전
-            ny = y + dy[new_direction]  # 현재 방향부터 8번 회전
+
+        [num, direction, x, y] = fish
+        for i in range(8):
+            new_direction = (direction + i) % 8
+            nx = x + dx[new_direction]
+            ny = y + dy[new_direction]
 
             if nx <= -1 or nx >= N or ny <= -1 or ny >= N:
                 continue
-            if shark_current == (nx, ny):
+
+            temp_num = map_list[nx][ny]
+            if temp_num == 17:
                 continue
+            if temp_num != -1:
+                fishes[temp_num][2] = x
+                fishes[temp_num][3] = y
 
-            temp = map_list[nx][ny]
-            map_list[nx][ny] = (num, new_direction + 1)
-            map_list[x][y] = temp
-
-            fish[i] = (num, new_direction + 1, nx, ny)
-            fish[map_list[x][y][0]] = (map_list[x][y][0], map_list[x][y][1], x, y)
+            fishes[num][1] = new_direction
+            fishes[num][2] = nx
+            fishes[num][3] = ny
+            map_list[nx][ny] = num
+            map_list[x][y] = temp_num
 
             break
-    return map_list
 
-def find_avail_fish(shark_current, shark, map_list, fish):
-    is_avail_fish = []
+def find_avail_fish(map_list, shark):
+    result = []
     # 먹을 수 있는 물고기
     for i in range(1, 4):
-        x, y = shark_current
-        new_direction = shark[1] - 1
-        nx = x + i * dx[new_direction]
-        ny = y + i * dy[new_direction]
+        [num, direction, x, y] = shark
+        nx = x + i * dx[direction]
+        ny = y + i * dy[direction]
 
         if nx <= -1 or nx >= N or ny <= -1 or ny >= N:
             break
-        if map_list[nx][ny] == (0, 0):
+        if map_list[nx][ny] == -1:
             continue
-        is_avail_fish.append(fish[map_list[nx][ny][0]])
-    return is_avail_fish
+        result.append(map_list[nx][ny])
 
-def shark_move(shark_current, shark, shark_eat, map_list, fish, is_avail_fish):
+    return result
+
+def DFS(map_list, fishes, shark, shark_size):
     result = []
-    print(shark, shark_current, shark_eat)
-    print(is_avail_fish)
-    new_shark_eat = shark_eat
-    new_map_list = copy.deepcopy(map_list)
-    new_fish = copy.deepcopy(fish)
-    while len(is_avail_fish) != 0:
-        # 상어 이동
-        new_shark_eat = shark_eat
-        for i in range(len(is_avail_fish)):
-            print(i)
-            num, direction, x, y = is_avail_fish[i]
-            new_shark_current = (x, y)
-            new_shark = (num, direction)
-            new_shark_eat += new_shark[0]
-            new_map_list[shark_current[0]][shark_current[1]] = (0, 0)
-            new_map_list[x][y] = (-1, -1)
-            new_fish[num] = (0, 0, 0, 0)
 
-            new_map_list = fish_move(new_shark_current, new_map_list, new_fish)
-            for m in map_list:
-                print(m)
-            print()
-            new_is_avail_fish = find_avail_fish(new_shark_current, new_shark, new_map_list, new_fish)
-            new_shark_eat = shark_move(new_shark_current, new_shark, new_shark_eat,
-                                       new_map_list, new_fish, new_is_avail_fish)
-            new_shark_eat = shark_eat
-            new_map_list = copy.deepcopy(map_list)
-            new_fish = copy.deepcopy(fish)
+    move_fishes(map_list, fishes)
+    avail_fishes_num = find_avail_fish(map_list, shark)
 
-    result.append(new_shark_eat)
-    print('end')
-    print()
-    return new_shark_eat
+    if len(avail_fishes_num) == 0:
+        return shark_size
+
+    for fish_num in avail_fishes_num:
+        new_map_list = deepcopy(map_list)
+        new_fishes = deepcopy(fishes)
+        new_shark = deepcopy(shark)
+        new_shark_size = shark_size
+
+        [_, _, x, y] = new_shark
+        [num, _, nx, ny] = new_fishes[fish_num]   # 먹을 물고기 상태
+        new_map_list[x][y] = -1     # 상어 이동
+        new_shark = new_fishes[num]  # 상어 상태
+        new_shark[0] = 17
+        new_fishes[num] = -1  # 물고기 먹음
+        new_shark_size += (fish_num + 1)
+        new_map_list[nx][ny] = 17
+
+        new_shark_size = DFS(new_map_list, new_fishes, new_shark, new_shark_size)
+        result.append(new_shark_size)
+
+    return max(result)
 
 
-# 초기화
-N = 4
-map_list = []
-fish = [(0, 0)]
+base_map_list = []
+base_fishes = []     # 0 ~ 15번 물고기
 
 for i in range(N):
-    a1, b1, a2, b2, a3, b3, a4, b4 = map(int, input().split())
-    row = [(a1, b1), (a2, b2), (a3, b3), (a4, b4)]
-    map_list.append([(a1, b1), (a2, b2), (a3, b3), (a4, b4)])
-    fish.extend([(a1, b1, i, 0), (a2, b2, i, 1), (a3, b3, i, 2), (a4, b4, i, 3)])
-fish.sort()
+    num1, dir1, num2, dir2, num3, dir3, num4, dir4 = map(lambda el: int(el) - 1, input().split())
+    row = [(num1, dir1), (num2, dir2), (num3, dir3), (num4, dir4)]
+    base_map_list.append([num1, num2, num3, num4])
+    base_fishes.extend([[num1, dir1, i, 0], [num2, dir2, i, 1], [num3, dir3, i, 2], [num4, dir4, i, 3]])
+base_fishes.sort()
 
-# 상어 초기화
-shark_eat = 0
-visited = [[0] * N for _ in range(N)]
+base_shark_size = 0
+base_shark = base_fishes[base_map_list[0][0]]  # 상어 상태
+base_shark[0] = 17
+base_fishes[base_map_list[0][0]] = -1     # 물고기 먹음
+base_shark_size += (base_map_list[0][0] + 1)
+base_map_list[0][0] = 17
 
-# (0,0) 물고기 먹음
-shark_current = (0, 0)
-shark = map_list[0][0]
-shark_eat += shark[0]
-map_list[0][0] = (-1, -1)
-fish[shark[0]] = (0, 0, 0, 0)
+print(DFS(base_map_list, base_fishes, base_shark, base_shark_size))
 
-fish_move(shark_current, map_list, fish)
-is_avail_fish = find_avail_fish(shark_current, shark, map_list, fish)
-shark_eat = shark_move(shark_current, shark, shark_eat, map_list, fish, is_avail_fish)
-
-print(shark_eat)
