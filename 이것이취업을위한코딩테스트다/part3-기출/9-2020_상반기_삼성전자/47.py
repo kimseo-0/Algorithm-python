@@ -13,7 +13,7 @@ N = 4
 def move_fishes(map_list, fishes):
     for fish in fishes:
         # 상어가 먹은 물고기일 경우
-        if fish == -1:
+        if fish is None:
             continue
 
         [num, direction, x, y] = fish   # 현재 물고기 상태
@@ -34,7 +34,7 @@ def move_fishes(map_list, fishes):
             if temp_num == 17:
                 continue
             # 해당 위치에 다른 물고기가 있는 경우
-            if temp_num != -1:
+            if temp_num is not None:
                 fishes[temp_num][2] = x
                 fishes[temp_num][3] = y
 
@@ -57,7 +57,7 @@ def find_avail_fish(map_list, shark):
 
         if nx <= -1 or nx >= N or ny <= -1 or ny >= N:
             break
-        if map_list[nx][ny] == -1:
+        if map_list[nx][ny] is None:
             continue
         result.append(map_list[nx][ny])
 
@@ -86,10 +86,10 @@ def DFS(map_list, fishes, shark, shark_size):
         # 상어 물고기 먹기 단계
         [_, _, x, y] = new_shark                  # 상어 현재 상태
         [num, _, nx, ny] = new_fishes[fish_num]   # 먹을 물고기 현재 상태
-        new_map_list[x][y] = -1                   # 상어 이동, 지도 빈칸 표기
+        new_map_list[x][y] = None                 # 상어 이동, 지도 빈칸 표기
         new_shark = new_fishes[num]               # 이동한 상어 상태 초기화
         new_shark[0] = 17                         # 상어 번호 초기화
-        new_fishes[num] = -1                      # 먹은 물고기 상태 초기화
+        new_fishes[num] = None                    # 먹은 물고기 상태 초기화
         new_shark_size += (fish_num + 1)          # 상어가 먹은 물고기 추가
         new_map_list[nx][ny] = 17                 # 지도 상어 표기
 
@@ -118,7 +118,7 @@ base_fishes.sort()
 base_shark_size = 0   # 상어가 먹은 물고기 양
 base_shark = base_fishes[base_map_list[0][0]]  # 상어 상태
 base_shark[0] = 17  # 상어 번호 초기화
-base_fishes[base_map_list[0][0]] = -1     # 물고기 먹음
+base_fishes[base_map_list[0][0]] = None     # 물고기 먹음
 base_shark_size += (base_map_list[0][0] + 1)  # 상어가 먹을 물고기 추가
 base_map_list[0][0] = 17    # 지도 상어 표기
 
