@@ -12,25 +12,33 @@ N = 4
 
 def move_fishes(map_list, fishes):
     for fish in fishes:
+        # 상어가 먹은 물고기일 경우
         if fish == -1:
             continue
 
-        [num, direction, x, y] = fish
+        [num, direction, x, y] = fish   # 현재 물고기 상태
+
+        # 45도 반시계 방향으로 돌리면서 체크
         for i in range(8):
             new_direction = (direction + i) % 8
             nx = x + dx[new_direction]
             ny = y + dy[new_direction]
 
+            # 이동 불가 영역
             if nx <= -1 or nx >= N or ny <= -1 or ny >= N:
                 continue
 
             temp_num = map_list[nx][ny]
+
+            # 해당 위치에 상어가 있는 경우
             if temp_num == 17:
                 continue
+            # 해당 위치에 다른 물고기가 있는 경우
             if temp_num != -1:
                 fishes[temp_num][2] = x
                 fishes[temp_num][3] = y
 
+            # 해당 위치가 빈칸이거나 다른 물고기가 있는 경우
             fishes[num][1] = new_direction
             fishes[num][2] = nx
             fishes[num][3] = ny
@@ -43,7 +51,7 @@ def find_avail_fish(map_list, shark):
     result = []
     # 먹을 수 있는 물고기
     for i in range(1, 4):
-        [num, direction, x, y] = shark
+        [_, direction, x, y] = shark
         nx = x + i * dx[direction]
         ny = y + i * dy[direction]
 
