@@ -3,22 +3,35 @@ input = sys.stdin.readline
 
 N = int(input())
 money_type_list = list(map(int, input().split()))
-money_type_list.sort(reverse=True)
 
+money_type_list.sort()
+
+# min_money - 1 까지 만들 수 있음
 min_money = 1
-while True:
-    money = min_money
-    for money_type in money_type_list:
-        if money >= money_type:
-            money -= money_type
-
-    if money == 0:
-        min_money += 1
-    else:
+for money_type in money_type_list:
+    if min_money < money_type:
         break
+
+    # min_money + 1, min_money + 2 .... min_money + (min_money - 1) 까지 만들 수 있다.
+    min_money += money_type
 
 print(min_money)
 
 
+# money_type_list.sort(reverse=True)
+# min_money = 1
+# while True:
+#     money = min_money
+#     for money_type in money_type_list:
+#         if money >= money_type:
+#             money -= money_type
+#
+#     if money == 0:
+#         min_money += 1
+#     else:
+#         break
+#
+# print(min_money)
 
+#
 
