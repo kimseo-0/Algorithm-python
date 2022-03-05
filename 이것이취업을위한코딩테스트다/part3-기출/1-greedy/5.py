@@ -15,9 +15,9 @@ result = 0
 
 # solution 2 : part1 + part2 [0, 0, 2, 2] > 1 * (2 + 2) + 2 * (2)
 # part 1
-# count_list = [0] * (M + 1)
-# for i in range(N):
-#     count_list[ball_weight_list[i]] += 1
+count_list = [0] * (M + 1)
+for i in range(N):
+    count_list[ball_weight_list[i]] += 1
 
 # part 2
 # 해당 방법은 N(반복문) * N(sum 의 시간 복잡도)
@@ -30,17 +30,21 @@ result = 0
 #     count = count_list[i]
 #     result += (sum(count_list[i + 1:]) * count)
 
+for i in range(1, M + 1):
+    N -= count_list[i]
+    result += count_list[i] * N
+
 
 # solution 3
 # N*logN
-ball_weight_list.sort()
-count = 1
-for i in range(N - 1):
-    if ball_weight_list[i] == ball_weight_list[i + 1]:
-        count += 1
-    else:
-        result += (N - i - 1) * count
-
+# ball_weight_list.sort()
+# count = 1
+# for i in range(N - 1):
+#     if ball_weight_list[i] == ball_weight_list[i + 1]:
+#         count += 1
+#     else:
+#         result += (N - i - 1) * count
+#
 print(result)
 
 # 8 5
