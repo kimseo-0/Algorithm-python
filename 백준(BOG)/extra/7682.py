@@ -2,7 +2,6 @@ game_list = [[0] * 3 for _ in range(3)]
 result = ""
 index = 0
 while True:
-    index += 1
     line = input()
     if line == 'end':
         break
