@@ -1,7 +1,6 @@
 import sys
 from collections import deque
 input = sys.stdin.readline
-from copy import deepcopy
 
 dx = [1, -1, 0, 0]  # 아래, 위, 오른쪽, 왼쪽
 dy = [0, 0, 1, -1]
