@@ -1,3 +1,6 @@
+import sys
+input = sys.stdin.readline
+
 N, M, k = map(int, input().split())
 
 dx = [-1, 1, 0, 0]  # 위 아래 왼쪽 오른쪽
@@ -23,9 +26,10 @@ for i in range(M):
         row.append(list(map(lambda el: int(el) - 1, input().split())))
     shark_priority.append(row)
 
+shark_count = M
 time = 0
 while True:
-    if M == 1:
+    if shark_count == 1:
         break
     if time >= 1000:
         time = -1
@@ -38,6 +42,9 @@ while True:
     # print()
 
     for i in range(M):
+        if shark_position[i] == -1:
+            continue
+
         [current_num, x, y] = shark_position[i]
         current_direction = shark_direction[i]
         current_priority = shark_priority[i][current_direction]
@@ -79,15 +86,18 @@ while True:
                     shark_smell[i][j] = [0, 0]
 
     for i in range(M):
+        if shark_position[i] == -1:
+            continue
+
         [current_num, x, y] = shark_position[i]
         if map_list[x][y] == 0:
             map_list[x][y] = current_num
             shark_smell[x][y] = [current_num, k]
         else:
-            shark_position.pop(i)
-            shark_direction.pop(i)
-            shark_priority.pop(i)
-            M -= 1
+            shark_position[i] = -1
+            # shark_direction[i] = -1
+            # shark_priority[i] = -1
+            shark_count -= 1
 
     time += 1
     # print(time)
