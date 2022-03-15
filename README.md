@@ -131,9 +131,6 @@ Pypy3는 Pyhon3의 문법을 그대로 지원하면서, 대부분 실행속도�
 
 # 알고리즘 
 <details>
-<div markdown="1">
-
-<details>
 <summary>greedy</summary>
 <div markdown="1">
 
@@ -156,7 +153,7 @@ Pypy3는 Pyhon3의 문법을 그대로 지원하면서, 대부분 실행속도�
   
 </div>
 </details>  
-- implementation
+  
 - DFS&BFS
   - depth_first_search(깊이 우선 탐색)
   - breadth_first_search(너비 우선 탐색)
@@ -174,11 +171,7 @@ Pypy3는 Pyhon3의 문법을 그대로 지원하면서, 대부분 실행속도�
   - dishoint_sets(서로소 집합)
   - kruskal(크루스칼)
   - topology_sort(위상 정렬)
-  
-  </div>
-</details>
-<br>
 
 # 추가 정보
 백준 단계별 :  https://www.acmicpc.net/step   
-blog : hayleykimlog.tistory.com
+blog : https://hayleykimlog.tistory.com
