@@ -1,3 +1,6 @@
+# 모험가 길드
+# 그리디 기준 : 공포도가 낮은 순서대로
+
 N = int(input())
 fear_list = list(map(int, input().split()))
 
