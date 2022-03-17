@@ -1,3 +1,8 @@
+# 자물쇠와 열쇠
+
+# 패딩을 주는 방법
+# matrix 를 90도 회정하는 방법
+
 import sys
 input = sys.stdin.readline
 
