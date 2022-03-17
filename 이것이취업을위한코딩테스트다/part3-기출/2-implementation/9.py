@@ -1,3 +1,4 @@
+# 문자열 재정렬
 # 리스트에서 바로 옆 요소와 비교를 하는 경우
 
 def compression(str_list, n):
@@ -25,7 +26,6 @@ def compression(str_list, n):
     result = result + (len(str_list) % n)
     return result
 
-
 def compression2(str_list, n):
     result = []
     count = 1
@@ -46,7 +46,7 @@ def compression2(str_list, n):
 def solution(s):
     str_list = list(s)
     answer = len(str_list)
-    for i in range(1, len(str_list)):
+    for i in range(1, len(str_list) // 2 + 1):
         answer = min(compression(str_list, i), answer)
     return answer
 
