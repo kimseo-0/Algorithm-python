@@ -1,3 +1,4 @@
+# 뱀
 import sys
 input = sys.stdin.readline
 
@@ -27,7 +28,7 @@ snake_num = 2
 # 뱀 상태 초기화
 snake_size = 1
 snake_head = (1, 1)         # 뱀 머리 위치
-snake_position = [(1, 1)]   # 뱀이 위치한 모든 좌표
+snake_position = [(1, 1)]   # 뱀이 위치한 모든 좌표, 꼬리가 앞
 map_list[1][1] = snake_num  # 지도에 뱀 위치 표시
 snake_direction = 0         # 뱀 이동 방향 : 오른쪽
 
