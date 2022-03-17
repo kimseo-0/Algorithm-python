@@ -128,8 +128,8 @@ Pypy3는 Pyhon3의 문법을 그대로 지원하면서, 대부분 실행속도�
   
 </div>
 </details>
-
 <br>
+
 # 알고리즘 
 <details>
 <summary>greedy</summary>
@@ -155,9 +155,20 @@ Pypy3는 Pyhon3의 문법을 그대로 지원하면서, 대부분 실행속도�
 </div>
 </details>  
   
-- DFS&BFS
-  - depth_first_search(깊이 우선 탐색)
-  - breadth_first_search(너비 우선 탐색)
+<details>
+<summary>DFS&BFS</summary>
+<div markdown="1">
+
+- depth_first_search(깊이 우선 탐색)
+- breadth_first_search(너비 우선 탐색)
+  
+</div>
+</details>  
+
+<details>
+<summary>ext</summary>
+<div markdown="1">
+
 - sort
   - selection_sort(선택 정렬)
   - insertion_sort(삽입 정렬)
@@ -172,7 +183,27 @@ Pypy3는 Pyhon3의 문법을 그대로 지원하면서, 대부분 실행속도�
   - dishoint_sets(서로소 집합)
   - kruskal(크루스칼)
   - topology_sort(위상 정렬)
+  
+</div>
+</details>  
 <br>
+
+# 알고리즘 풀이법
+<details>
+<summary>DFS&BFS</summary>
+<div markdown="1">
+
+1. 문제에 대한 이해를 적는다.
+2. 입력 값을 확인한다.
+   - 입력 값의 범위를 통해 짜야할 알고리즘의 최대 시간 복잡도를 체크한다. > 필요한 알고리즘에 대한 힌트를 얻을 수 있다.
+   - 문제에는 나타나 있지 않는 입력 값에 대한 설명을 체크한다. ex) 입력 숫자 0 은 빈칸을 의미한다. 'end' 가 입력되면 프로그램을 종료한다.
+   - 극단적인 입력값 테스트 케이스를 고려한다.
+3. 출력 값을 확인한다.
+   - 문제에는 나타나 있지 않은 출력 값에 대한 예외처리를 체크한다. ex) 불가능한 경우 -1 을 출력한다.
+4. 필요한 변수 생성 및 입력 값 초기화
+  
+</div>
+</details> 
 
 # 추가 정보
 백준 단계별 :  https://www.acmicpc.net/step   
