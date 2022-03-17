@@ -1,3 +1,6 @@
+# 치킨 배달하기
+# 조합을 구해서 전부 확인
+
 from itertools import combinations
 import sys
 input = sys.stdin.readline
