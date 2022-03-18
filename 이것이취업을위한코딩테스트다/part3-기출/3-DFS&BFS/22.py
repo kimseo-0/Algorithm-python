@@ -1,12 +1,15 @@
 import sys
 from collections import deque
+from copy import deepcopy
+
 input = sys.stdin.readline
 
+result = 10e9
 dx = [1, -1, 0, 0]  # 아래, 위, 오른쪽, 왼쪽
 dy = [0, 0, 1, -1]
 
 def BFS(graph, visited, start, n, time):
-    result = 10e9
+    global result
     ((x1, y1), (x2, y2)) = start
     q = deque([start])
     visited[x1][y1] = time + 1
@@ -32,32 +35,45 @@ def BFS(graph, visited, start, n, time):
             if graph[nx1][ny1] == 1 or graph[nx2][ny2] == 1:
                 continue
 
+            if (nx1 == n - 1 and ny1 == n - 1) or (nx2 == n - 1 and ny2 == n - 1):
+                result = min(result, visited[x1][y1] + 1)
+                break
+
+            new_visited = deepcopy(visited)
+            print((x1, y1), (nx1, ny1))
+            if graph[nx1][ny1] > graph[x1][y1]:
+                BFS(graph, new_visited, ((x1, y1), (nx1, ny1)), n, visited[x1][y1])
+
+            print((x2, y2), (nx2, ny2))
+            if graph[nx2][ny2] > graph[x2][y2]:
+                BFS(graph, new_visited, ((x2, y2), (nx2, ny2)), n, visited[x1][y1])
+
             # new_visited = deepcopy(visited)
             # new_visited[nx1][ny1] = new_visited[x1][y1]
             # new_visited[nx2][ny2] = new_visited[x1][y1]
 
-            if visited[nx1][ny1] == 0:
-                q.append(((nx1, ny1), (nx2, ny2)))
-                # if x1 != nx1 and y1 != ny1:
-                visited[nx1][ny1] = visited[x1][y1] + 1
-                # if x2 != nx2 and y2 != ny2:
-                visited[nx2][ny2] = visited[x1][y1] + 1
-
-                if (nx1 == n - 1 and ny1 == n - 1) or (nx2 == n - 1 and ny2 == n - 1):
-                    if visited[nx1][ny1] != 0:
-                        result = min(result, visited[nx1][ny1])
-                    break
-            if visited[nx2][ny2] == 0:
-                q.append(((nx1, ny1), (nx2, ny2)))
-                # if x1 != nx1 and y1 != ny1:
-                visited[nx1][ny1] = visited[x1][y1] + 1
-                # if x2 != nx2 and y2 != ny2:
-                visited[nx2][ny2] = visited[x1][y1] + 1
-
-                if (nx1 == n - 1 and ny1 == n - 1) or (nx2 == n - 1 and ny2 == n - 1):
-                    if visited[nx1][ny1] != 0:
-                        result = min(result, visited[nx1][ny1])
-                    break
+            # if visited[nx1][ny1] == 0:
+            #     q.append(((nx1, ny1), (nx2, ny2)))
+            #     # if x1 != nx1 and y1 != ny1:
+            #     visited[nx1][ny1] = visited[x1][y1] + 1
+            #     # if x2 != nx2 and y2 != ny2:
+            #     visited[nx2][ny2] = visited[x1][y1] + 1
+            #
+            #     if (nx1 == n - 1 and ny1 == n - 1) or (nx2 == n - 1 and ny2 == n - 1):
+            #         if visited[nx1][ny1] != 0:
+            #             result = min(result, visited[nx1][ny1])
+            #         break
+            # if visited[nx2][ny2] == 0:
+            #     q.append(((nx1, ny1), (nx2, ny2)))
+            #     # if x1 != nx1 and y1 != ny1:
+            #     visited[nx1][ny1] = visited[x1][y1] + 1
+            #     # if x2 != nx2 and y2 != ny2:
+            #     visited[nx2][ny2] = visited[x1][y1] + 1
+            #
+            #     if (nx1 == n - 1 and ny1 == n - 1) or (nx2 == n - 1 and ny2 == n - 1):
+            #         if visited[nx1][ny1] != 0:
+            #             result = min(result, visited[nx1][ny1])
+            #         break
 
         for i in range(4):
             nx1 = x1 + dx[i]
@@ -72,16 +88,15 @@ def BFS(graph, visited, start, n, time):
             if visited[nx1][ny1] > 0 and visited[nx2][ny2] > 0:
                 continue
 
+            if (nx1 == n - 1 and ny1 == n - 1) or (nx2 == n - 1 and ny2 == n - 1):
+                result = min(result, visited[x1][y1] + 1)
+                break
+
             q.append(((nx1, ny1), (nx2, ny2)))
             # if x1 != nx1 and y1 != ny1:
             visited[nx1][ny1] = visited[x1][y1] + 1
             # if x2 != nx2 and y2 != ny2:
             visited[nx2][ny2] = visited[x1][y1] + 1
-
-            if (nx1 == n - 1 and ny1 == n - 1) or (nx2 == n - 1 and ny2 == n - 1):
-                if visited[nx1][ny1] != 0:
-                    result = min(result, visited[nx1][ny1])
-                break
 
     return result
 
