@@ -1,3 +1,5 @@
+# 경쟁적 전염
+
 import sys
 from collections import deque
 input = sys.stdin.readline
