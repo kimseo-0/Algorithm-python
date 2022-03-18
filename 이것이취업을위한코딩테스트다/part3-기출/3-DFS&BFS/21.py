@@ -1,3 +1,6 @@
+# 인구 이동
+# 해당 문제의 경우 파이썬3로 제출하면 시간초과가 발생함, pypy3로 제출
+
 import sys
 from collections import deque
 input = sys.stdin.readline
