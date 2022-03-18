@@ -9,8 +9,8 @@
 
 # 목차
 <details>
-  <summary>백준(BOG)</summary>
-  <div markdown="1">
+<summary>백준(BOG)</summary>
+<div markdown="1">
 
   - 11-완전탐색(brute_force)
   - 12-정렬(sort)
@@ -160,8 +160,80 @@ Pypy3는 Pyhon3의 문법을 그대로 지원하면서, 대부분 실행속도�
 <div markdown="1">
 
 - depth_first_search(깊이 우선 탐색)
+    - 깊이 우선 탐색 알고리즘이며 그래프를 탐색하는 알고리즘이다. 최대한 멀리 있는 노드를 우선으로 탐색하는 방식으로 동작하며 스택 자료구조를 이용한다.
+    - 시간 복잡도 : O(N)
 - breadth_first_search(너비 우선 탐색)
-  
+    - 가까운 노드부터 탐색하는 알고리즘이다. 선입선출 방식의 큐를 이용한다.
+    - 시간 복잡도 : O(N), 일반적인 경우 실제 수행 시간은 DFS 보다 좋은 편이다.
+
+> 인접 행렬 vs 2차원 인접 리스트   
+> 인점 행렬 : 2차원 배열로 그래프의 연결 관계를 표현하는 방식
+> ```
+> # 인접 행렬 예시
+> graph = [[] for _ in range(3)]
+> 
+> # 노드 0에 연결된 노드 정보 : (노드, 거리)
+> graph[0].append((1, 7))
+> graph[0].append((2, 5))
+> 
+> # 노드 1에 연결된 노드 정보 : (노드, 거리)
+> graph[1].append((0, 7))
+> ```
+>
+> 인접 리스트 : 리스트로 그래프의 연결 관계를 표현하는 방식
+> ```
+> # 인접 리스트 예시
+> 
+> INF = 987654321  # 10e9, 연결되어있지 않음을 무한 비용으로 표현
+> 
+> graph = [
+>       [0, 7, 5],
+>       [7, 0, INF],
+>       [5, INF, 0]
+>   ]
+> ```
+> 
+> 인접 행렬 방식은 모든 관계를 저장하므로, 노드 개수가 많을수록 메모리가 불필요하게 낭비된다.
+>
+> 인접 리스트 방식은 특정 두 노드가 연결되어 있는지에 대한 정보를 얻는 속도가 느리다. 
+>
+> 따라서, 특정한 노드와 연결된 모든 인접 노드를 순회해야 하는 경우, 
+> 인접 리스트 방식이 인접 행렬 방식에 비해 메모리 공강의 낭비가 적다.
+
+</div>
+</details>  
+
+<details>
+<summary>sort</summary>
+<div markdown="1">
+
+- selection_sort(선택 정렬)
+- insertion_sort(삽입 정렬)
+- quick_sort(퀵 정렬)
+- count_sort(계수 정렬)
+
+</div>
+</details>  
+
+<details>
+<summary>sort</summary>
+<div markdown="1">
+
+- selection_sort(선택 정렬)
+- insertion_sort(삽입 정렬)
+- quick_sort(퀵 정렬)
+- count_sort(계수 정렬)
+- heap_sort(힙 정렬)
+
+</div>
+</details>  
+
+<details>
+<summary>binary_search</summary>
+<div markdown="1">
+
+이전 탐색
+
 </div>
 </details>  
 
@@ -169,12 +241,6 @@ Pypy3는 Pyhon3의 문법을 그대로 지원하면서, 대부분 실행속도�
 <summary>ext</summary>
 <div markdown="1">
 
-- sort
-  - selection_sort(선택 정렬)
-  - insertion_sort(삽입 정렬)
-  - quick_sort(퀵 정렬)
-  - count_sort(계수 정렬)
-- binary_search(이진 탐색)
 - dynamic_programing
 - shortest_route
   - dijkstra(다익스트라)
@@ -190,7 +256,7 @@ Pypy3는 Pyhon3의 문법을 그대로 지원하면서, 대부분 실행속도�
 
 # 알고리즘 풀이법
 <details>
-<summary>DFS&BFS</summary>
+<summary>세부사항</summary>
 <div markdown="1">
 
 1. 문제에 대한 이해를 적는다.
