@@ -1,8 +1,9 @@
+# 연구소
 # 시작 08:15 - 종료 09:05
 
 # N * M 직사각형
 # 바이러스 상하좌우 퍼짐
-# 벽은 반드시 3개 세워야함
+# 벽은 반드시 3개 세워야함 > 조합을 활용하여, 모든 경우에 수에 대한 문제 조건을 확인한다
 # 0 : 빈칸, 1 : 벽, 2 : 바이러스
 from itertools import combinations
 from collections import deque
