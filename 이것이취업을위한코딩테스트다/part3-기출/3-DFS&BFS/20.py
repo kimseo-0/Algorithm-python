@@ -1,3 +1,7 @@
+# 감시 피하기
+# 바이러스 피하기 문제와 동일,
+# 조합을 활용하여 장애물의 모든 조합에 대해서 체크한다.
+
 from collections import deque
 from itertools import combinations
 import sys
