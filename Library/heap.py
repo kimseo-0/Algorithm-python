@@ -33,6 +33,9 @@ heapq.heappush(h, 1)
 heapq.heappush(h, 3)
 heapq.heappush(h, 2)
 print(h)
+print(heapq.heappop(h))
+print(heapq.heappop(h))
+print(heapq.heappop(h))
 
 h2 = [1, 4, 2]
 heapq.heapify(h2)
