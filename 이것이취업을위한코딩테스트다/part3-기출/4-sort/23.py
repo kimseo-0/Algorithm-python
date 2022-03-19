@@ -1,3 +1,5 @@
+# 국영수
+# python sort key 사용법
 N = int(input())
 
 li = []
