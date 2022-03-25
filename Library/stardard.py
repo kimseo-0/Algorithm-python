@@ -13,3 +13,9 @@ print('is decimal? :', data_string.isdecimal())
 print('is lower? :', data_string.islower())
 # 대문자
 print('is upper? :', data_string.isupper())
+
+
+data_list = ['abcd', 'efgh']
+reverse_data_list = [data_list[::-1] for data_list in data_list]
+reverse_data_list.reverse()
+print('reverse datat list :', reverse_data_list)
