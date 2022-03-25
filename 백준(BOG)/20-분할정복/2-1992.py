@@ -3,17 +3,15 @@ board = []
 for i in range(N):
     board.append(list(map(int, list(input().strip()))))
 
-count_color = [0, 0]
-
 def check_same(matrix, n):
     if n == 1:
         print(matrix[0][0], end='')
         return
 
-    if sum(list(map(sum, matrix))) == 0:
+    if sum(list(map(lambda x: x.count(0), matrix))) == n * n:
         print(0, end='')
         return
-    if sum(list(map(sum, matrix))) == n * n:
+    elif sum(list(map(lambda x: x.count(1), matrix))) == n * n:
         print(1, end='')
         return
 
@@ -26,3 +24,5 @@ def check_same(matrix, n):
 
 
 check_same(board, N)
+
+# ((110(0101))(0010)1(0001))
