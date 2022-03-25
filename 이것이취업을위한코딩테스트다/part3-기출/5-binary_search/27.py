@@ -1,3 +1,7 @@
+# 정렬된 배열에서 특정 수의 개수 구하기
+# O(logN) 으로 구현할 것
+# 이진탐색을 활용하여 갯수를 세는 방법
+
 def binary_search_first(array, start, end):
     if start > end:
         return None
