@@ -3,7 +3,7 @@ import sys
 input = sys.stdin.readline
 
 N = int(input())
-DP = [1]
+# DP = [1]
 
 # solution 1
 # num = 2
@@ -40,20 +40,36 @@ DP = [1]
 # print(DP)
 
 # solution 2
-n = int(input())
+# n = int(input())
+#
+# q = []
+# heapq.heappush(q, 1)
+# for i in range(n):
+#     v = heapq.heappop(q)
+#     if v * 2 not in q:
+#         heapq.heappush(q, v * 2)
+#     if v * 3 not in q:
+#         heapq.heappush(q, v * 3)
+#     if v * 5 not in q:
+#         heapq.heappush(q, v * 5)
+#     if i == n - 1:
+#         print(v)
 
-q = []
-heapq.heappush(q, 1)
-for i in range(n):
-    v = heapq.heappop(q)
-    if v * 2 not in q:
-        heapq.heappush(q, v * 2)
-    if v * 3 not in q:
-        heapq.heappush(q, v * 3)
-    if v * 5 not in q:
-        heapq.heappush(q, v * 5)
-    if i == n - 1:
-        print(v)
+# solution 3
 
+DP = [0] * 1001
+DP[1] = 1
+count = 1
+i = 1
+while count < N:
+    i += 1
+    if i % 2 == 0:
+        DP[i] = DP[i // 2]
+    elif i % 3 == 0:
+        DP[i] = DP[i // 3]
+    elif i % 5 == 0:
+        DP[i] = DP[i // 5]
 
+    count += DP[i]
 
+print(i)
