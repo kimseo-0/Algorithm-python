@@ -1,15 +1,14 @@
-# unsolved
+# solved
 N = int(input())
 num_list = list(map(int, input().split()))
 
-result = [[1, num_list[0]]]
+DP = [1] * N
 
 for i in range(N):
-    for j in range(len(result)):
-        if result[j][1] < num_list[i]:
-            result[j][0] += 1
-            result[j][1] = num_list[i]
-        else:
-            result.append([1, num_list[i]])
+    for j in range(i):
+        if num_list[i] > num_list[j]:
+            DP[i] = max(DP[i], DP[j] + 1)
 
-print(result)
+# print(DP)
+print(max(DP))
+
