@@ -6,8 +6,6 @@ A, B, V = map(int, input().split())
 count = (V - A) // (A - B) + 1
 move_distance = (V - A) % (A - B)
 
-
-
 # print(count)
 # print(V - move_distance)
 
