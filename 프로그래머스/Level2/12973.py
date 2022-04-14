@@ -1,7 +1,7 @@
 # 2017 팁스타운 > 짝지어 제거하기
 # https://programmers.co.kr/learn/courses/30/lessons/12973
 
-def solution1(s):
+def solution(s):
     temp_s = ""
     temp = ""
     i = 0
@@ -32,7 +32,6 @@ def solution1(s):
         temp_s = ""
         temp = ""
         i = 0
-
 
 def check(s, start, end):
     temp_start = start
@@ -71,7 +70,6 @@ def check(s, start, end):
         temp_start = start
         temp_end = end
     return 1
-
 
 def check1(s, start, end):
     print(start, end)
