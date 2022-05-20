@@ -15,15 +15,12 @@ def solution(bridge_length, weight, truck_weights):
     queue = [*[0] * (bridge_length - 1), truck_weights.pop(0)]
 
     time = 1
-    while queue or len(truck_weights) > 0:
+    while left_truck_num > 0:
         time += 1
         sum_of_weight -= queue[0]
 
         if queue.pop(0) > 0:
             left_truck_num -= 1
-
-        if left_truck_num <= 0:
-            break
 
         if len(truck_weights) <= 0:
             continue
